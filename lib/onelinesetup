@@ -8,10 +8,11 @@ EDITION=${3:-community}
 
 mkdir ${FOLDER} && cd ${FOLDER}
 
-curl -s https://raw.githubusercontent.com/markshust/docker-magento/master/lib/template | bash
+curl -s https://raw.githubusercontent.com/eermolaev/docker-magento/master/lib/template | bash
 
 # &&'s are used below otherwise onelinesetup script fails/errors after bin/download
 bin/download "${VERSION}" "${EDITION}" \
-  && bin/setup "${DOMAIN}" \
-  && bin/magento module:disable Magento_TwoFactorAuth \
+  && bin/setup "${DOMAIN}" 
+  
+bin/magento module:disable Magento_TwoFactorAuth \
   && bin/magento cache:flush
