@@ -40,6 +40,7 @@ services:
     image: markoshust/magento-php:7.4-fpm-11
     volumes: *appvolumes
     extra_hosts: *appextrahosts
+      - "host.docker.internal:$DOCKER_HOST_IP"
     env_file: env/phpfpm.env
 
   db:
