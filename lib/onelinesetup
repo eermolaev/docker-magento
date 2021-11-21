@@ -12,8 +12,6 @@ curl -s https://raw.githubusercontent.com/eermolaev/docker-magento/master/lib/te
 
 # &&'s are used below otherwise onelinesetup script fails/errors after bin/download
 bin/download "${VERSION}" "${EDITION}" \
-  && bin/magento module:disable Magento_TwoFactorAuth \
-  && bin/magento cache:flush \
   && bin/setup "${DOMAIN}" 
   
 bin/magento module:disable Magento_TwoFactorAuth \
