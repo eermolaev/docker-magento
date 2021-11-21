@@ -35,13 +35,12 @@ services:
       - "rabbitmq:172.17.0.1"
       ## Selenium support, replace "magento.test" with URL of your site
       - "magento.test:172.17.0.1"
+      - "host.docker.internal:$DOCKER_HOST_IP"
 
   phpfpm:
     image: markoshust/magento-php:7.4-fpm-11
     volumes: *appvolumes
-    extra_hosts: 
-      <<: *appextrahosts
-      - "host.docker.internal:$DOCKER_HOST_IP"
+    extra_hosts: *appextrahosts
     env_file: env/phpfpm.env
 
   db:
