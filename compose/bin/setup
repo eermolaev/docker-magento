@@ -95,6 +95,12 @@ bin/magento cron:install
 echo "Turning on developer mode.."
 bin/clinotty bin/magento deploy:mode:set developer
 
+
+echo "Turning off 2FA.."
+bin/clinotty bin/magento module:disable Magento_TwoFactorAuth
+bin/clinotty bin/magento cache:flush 
+
+
 mv .vscode src/
 
 echo "Docker development environment setup complete."
