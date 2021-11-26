@@ -89,7 +89,7 @@ RUN apt-get install -y msmtp mailutils
 COPY conf/msmtprc /etc/msmtprc
 
 RUN curl -sS https://getcomposer.org/installer | \
-  php -- --install-dir=/usr/local/bin --filename=composer
+  php -- --install-dir=/usr/local/bin --filename=composer --1
 
 RUN curl -s https://packages.blackfire.io/gpg.key | apt-key add - \
   && echo "deb http://packages.blackfire.io/debian any main" | tee /etc/apt/sources.list.d/blackfire.list \
